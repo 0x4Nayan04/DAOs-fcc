@@ -1,66 +1,50 @@
-## Foundry
+# Foundry DAO Governance
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This workspace is a Solidity project for a decentralized autonomous organization (DAO) governance system. It includes smart contracts for a governance token, a custom governance contract, and a timelock contract for governance actions.
 
-Foundry consists of:
+## Structure
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+The workspace is organized as follows:
 
-## Documentation
+- `.github/`: Contains GitHub Actions workflows for continuous integration.
+- `cache/`: Stores cache files for faster builds and tests.
+- `foundry.toml`: Configuration file for Foundry, a Solidity development toolchain.
+- `lib/`:
+  - `forge-std/`: Foundry's standard library for testing and development.
+  - `openzeppelin-contracts/`: A library for secure smart contract development.
+- `script/`: Scripts for deployment and other automation tasks.
+- `src/`: Source directory for Solidity smart contracts.
+  - `Box.sol`: An example smart contract.
+  - `GovToken.sol`: Governance token contract.
+  - `MyGovernor.sol`: Custom governance contract.
+  - `TimeLock.sol`: Timelock contract for governance actions.
+- `test/`: Contains tests for the smart contracts.
 
-https://book.getfoundry.sh/
+## Getting Started
 
-## Usage
+To get started with this project, you will need to have Foundry installed. Follow the steps below to set up your development environment:
 
-### Build
+1. **Install Foundry:**
 
-```shell
-$ forge build
-```
+   Foundry provides a fast and flexible framework for Solidity development. Install it by following the instructions on the [Foundry GitHub repository](https://github.com/gakonst/foundry).
 
-### Test
+2. **Install Dependencies:**
 
-```shell
-$ forge test
-```
+   Install the project dependencies using forge:
 
-### Format
+   ```
+   forge install foundry-rs/forge-std --no-commit && forge install openzeppelin/openzeppelin-contracts@v4.8.3 --no-commit
 
-```shell
-$ forge fmt
-```
+   ```
 
-### Gas Snapshots
+3. **Compile Contracts:**
+   Compile the Solidity contracts using Foundry:
+   forge build
 
-```shell
-$ forge snapshot
-```
+4. **Run Tests:**
+   Execute the tests to ensure everything is working as expected:
+   forge test
 
-### Anvil
+## License
 
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+This project is licensed under the MIT License - see the LICENSE file for details. Some dependencies may be licensed differently - consult their respective license files for details.
